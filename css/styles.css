@@ -1,0 +1,672 @@
+/* ==========================================================================
+   1. VARIABLES Y TEMAS (CSS Custom Properties)
+   ========================================================================== */
+:root {
+  /* Paleta Claro Dinámica */
+  --bg-color: #f0f4f9;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #3b82f6;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --border-color: rgba(226, 232, 240, 0.8);
+  --shadow-bubble: 0 10px 25px -5px rgba(59, 130, 246, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 20px 35px -10px rgba(59, 130, 246, 0.25), 0 12px 15px -8px rgba(139, 92, 246, 0.15);
+  --tag-bg: #e0e7ff;
+  --tag-text: #3730a3;
+  
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --radius-bubble: 24px;
+  --radius-pill: 50px;
+  --bounce-easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --max-width: 1100px;
+}
+
+body.dark-mode {
+  --bg-color: #0b0f19;
+  --bg-card: rgba(24, 32, 51, 0.85);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #60a5fa;
+  --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  --accent-glow: rgba(96, 165, 250, 0.3);
+  --border-color: rgba(51, 65, 85, 0.7);
+  --shadow-bubble: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 35px -10px rgba(96, 165, 250, 0.3);
+  --tag-bg: rgba(96, 165, 250, 0.15);
+  --tag-text: #93c5fd;
+}
+
+/* ==========================================================================
+   2. RESET & FONDOS PARALLAX Y PARTÍCULAS
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Contenedor Parallax */
+.bg-bubbles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: 0.55;
+  transition: transform 0.15s linear;
+  will-change: transform;
+}
+
+.bubble-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #60a5fa 0%, #8b5cf6 60%, transparent 100%);
+  top: -100px;
+  left: -100px;
+  animation: hueRotate 14s infinite linear;
+}
+
+.bubble-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ec4899 0%, #3b82f6 60%, transparent 100%);
+  bottom: -140px;
+  right: -120px;
+  animation: hueRotate 18s infinite linear reverse;
+}
+
+.bubble-3 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #10b981 0%, #6366f1 60%, transparent 100%);
+  top: 40%;
+  left: 45%;
+}
+
+@keyframes hueRotate {
+  0% { filter: blur(75px) hue-rotate(0deg); }
+  100% { filter: blur(75px) hue-rotate(360deg); }
+}
+
+/* Partículas Flotantes Ascendentes */
+.particle {
+  position: absolute;
+  background: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: floatUp 12s infinite ease-in-out;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.45;
+  }
+  80% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   3. NAVEGACIÓN Y TYPEWRITER LOGO
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 15px;
+  z-index: 1000;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.75rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-bubble);
+  transition: all 0.3s var(--bounce-easing);
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: monospace;
+  display: inline-flex;
+  align-items: center;
+  min-width: 220px;
+}
+
+#logo-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent-color);
+  font-weight: 800;
+  animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-lang, .btn-theme {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s var(--bounce-easing);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.btn-lang:hover, .btn-theme:hover {
+  transform: scale(1.1) rotate(3deg);
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 18px var(--accent-glow);
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero {
+  max-width: var(--max-width);
+  margin: 3.5rem auto 2.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-bubble);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseDot 1.8s infinite;
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-role {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* ==========================================================================
+   5. BUBBLE BUTTONS & CARDS
+   ========================================================================== */
+.bubble-btn {
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.35s var(--bounce-easing);
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 28px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-bubble);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-hover);
+}
+
+/* BUBBLE CARDS */
+.bubble-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.8rem;
+  border-radius: var(--radius-bubble);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-bubble);
+  transition: transform 0.4s var(--bounce-easing), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.3), transparent 60%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.bubble-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-color);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+  transition: transform 0.4s var(--bounce-easing);
+}
+
+.bubble-card:hover .card-icon {
+  transform: scale(1.25) rotate(8deg);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.card-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--tag-bg);
+  color: var(--tag-text);
+}
+
+/* ==========================================================================
+   6. SECCIONES & FILTROS
+   ========================================================================== */
+.section {
+  max-width: var(--max-width);
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 5px;
+  background: var(--accent-gradient);
+  border-radius: 10px;
+}
+
+.skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.8rem;
+}
+
+.project-filters {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.88rem;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 16px var(--accent-glow);
+}
+
+.tags-container {
+  margin-top: 1rem;
+}
+
+.bubble-tag {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-right: 0.4rem;
+  transition: transform 0.3s var(--bounce-easing);
+}
+
+.bubble-tag:hover {
+  transform: scale(1.1);
+}
+
+/* Timeline estilo Bubble */
+.timeline {
+  position: relative;
+  border-left: 3px solid var(--border-color);
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: '✨';
+  position: absolute;
+  left: -2.75rem;
+  top: 1.2rem;
+  font-size: 1rem;
+  background: var(--bg-card);
+  border-radius: 50%;
+  padding: 0.1rem;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   7. ANIMACIONES DE DESPLAZAMIENTO (SCROLL REVEAL)
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px) scale(0.96);
+  transition: opacity 0.7s ease, transform 0.7s var(--bounce-easing);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    width: 92%;
+    top: 10px;
+    padding: 0.7rem 1.2rem;
+  }
+  
+  .nav-links {
+    gap: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .bubble-btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   9. ESTILOS DE IMPRESIÓN Y PDF (@media print)
+   ========================================================================== */
+@media print {
+  .bg-bubbles-container,
+  .navbar,
+  .badge-pill,
+  .project-filters,
+  .hero-buttons {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .bubble-card {
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* ==========================================================================
+   ALINEACIÓN DE TARJETAS Y LOGOS TÉCNICOS
+   ========================================================================== */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card p {
+  margin-bottom: 1.5rem;
+}
+
+.tags-container {
+  margin-top: auto; /* Empuja las etiquetas hacia el fondo de la tarjeta */
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bubble-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: transform 0.3s var(--bounce-easing), background-color 0.3s ease;
+}
+
+.bubble-tag:hover {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.tech-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   ENLACES A REPOSITORIOS / PROYECTOS
+   ========================================================================== */
+.card-links {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s var(--bounce-easing);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.project-link:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 14px var(--accent-glow);
+}
+
+body.dark-mode .project-link .tech-icon {
+  filter: invert(1); /* Hace que el ícono de GitHub sea blanco en modo oscuro */
+}

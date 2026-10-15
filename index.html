@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Uribe - Desarrollador de Software</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Fondo Parallax de Esferas Ambientales & Partículas -->
+  <div class="bg-bubbles-container">
+    <div class="bg-bubble bubble-1" data-speed="0.2"></div>
+    <div class="bg-bubble bubble-2" data-speed="-0.15"></div>
+    <div class="bg-bubble bubble-3" data-speed="0.1"></div>
+    <!-- Contenedor dinámico para partículas flotantes -->
+    <div id="particles-container"></div>
+  </div>
+
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="logo">
+      <span id="logo-text">&lt;AnthonyUribe /&gt;</span><span class="typewriter-cursor">|</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav-about">Sobre mí</a></li>
+      <li><a href="#skills" data-i18n="nav-skills">Habilidades</a></li>
+      <li><a href="#projects" data-i18n="nav-projects">Proyectos</a></li>
+      <li><a href="#experience" data-i18n="nav-experience">Educación & Trayectoria</a></li>
+      <li><a href="#references" data-i18n="nav-references">Referencias</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="lang-toggle" class="btn-lang" title="Cambiar Idioma">EN</button>
+      <button id="theme-toggle" class="btn-theme" title="Modo Oscuro/Claro">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="hero scroll-reveal">
+    <div class="badge-pill">
+      <span class="pulse-dot"></span> <span data-i18n="hero-badge">Disponible para nuevos proyectos y oportunidades</span>
+    </div>
+    <h1>Anthony Uribe</h1>
+    <h2 class="hero-role" data-i18n="hero-title">Desarrollador de Software Intermedio</h2>
+    <p class="subtitle" data-i18n="hero-subtitle">
+      Estudiante de 20 años en la Pontificia Universidad Católica del Ecuador (PUCE). Especializado en desarrollo web con HTML, CSS, JavaScript, programación sólida en Python y configuración de sistemas de redes de computación. Apasionado por el trabajo en equipo y la colaboración activa.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary bubble-btn" data-i18n="btn-projects">Ver Proyectos</a>
+      <button onclick="window.print()" class="btn-secondary bubble-btn" data-i18n="btn-print">Imprimir / PDF</button>
+    </div>
+  </header>
+
+  <!-- Habilidades -->
+  <section id="skills" class="section scroll-reveal">
+    <h2 data-i18n="section-skills">Habilidades Técnicas & Blandas</h2>
+    <div class="skills-grid">
+      <div class="skill-card bubble-card">
+        <div class="card-icon">💻</div>
+        <h3 data-i18n="skill-frontend-title">Desarrollo Web (Frontend)</h3>
+        <p data-i18n="skill-frontend-desc">HTML5, CSS3 (Flexbox, CSS Grid), JavaScript (ES6+), Maquetación Responsive & Accesibilidad Web.</p>
+      </div>
+      <div class="skill-card bubble-card">
+        <div class="card-icon">🐍</div>
+        <h3 data-i18n="skill-backend-title">Programación & Backend</h3>
+        <p data-i18n="skill-backend-desc">Python (Lógica de programación, desarrollo de scripts y frameworks web como Flask / FastAPI), SQL & Bases de Datos Relacionales.</p>
+      </div>
+      <div class="skill-card bubble-card">
+        <div class="card-icon">🌐</div>
+        <h3 data-i18n="skill-networks-title">Sistemas de Redes de Computación</h3>
+        <p data-i18n="skill-networks-desc">Configuración de redes, arquitectura de red, direccionamiento IP, protocolos de enrutamiento y simulación técnica.</p>
+      </div>
+      <div class="skill-card bubble-card">
+        <div class="card-icon">🎬</div>
+        <h3 data-i18n="skill-video-title">Edición de Video & Multimedia</h3>
+        <p data-i18n="skill-video-desc">Edición de video a nivel pre-profesional para proyectos tecnológicos, presentaciones ejecutivas y contenido audiovisual.</p>
+      </div>
+      <div class="skill-card bubble-card">
+        <div class="card-icon">🤝</div>
+        <h3 data-i18n="skill-soft-title">Trabajo en Equipo & Convivencia</h3>
+        <p data-i18n="skill-soft-desc">Facilidad para el trabajo en grupo, excelente comunicación interpersonal, resolución colaborativa de problemas y adaptabilidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Destacados -->
+  <section id="projects" class="section scroll-reveal">
+    <h2 data-i18n="section-projects">Proyectos Destacados</h2>
+    
+    <!-- Filtros de Proyectos -->
+    <div class="project-filters">
+      <button class="filter-btn bubble-btn active" data-filter="all" data-i18n="filter-all">Todos</button>
+      <button class="filter-btn bubble-btn" data-filter="web" data-i18n="filter-web">Web & Full-Stack</button>
+      <button class="filter-btn bubble-btn" data-filter="python" data-i18n="filter-python">Python & IA</button>
+      <button class="filter-btn bubble-btn" data-filter="redes" data-i18n="filter-redes">Redes & DB</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Proyecto 1: FetchFood / TastyByte -->
+      <article class="project-card bubble-card" data-category="web">
+        <div class="card-header">
+          <h3 data-i18n="p1-title">TastyByte / FetchFood</h3>
+          <span class="card-badge">Full-Stack</span>
+        </div>
+        <p data-i18n="p1-desc">Sistema web para pedidos en mesas de restaurantes e interfaz en tiempo real para el área de cocina.</p>
+        
+        <div class="card-links">
+          <a href="https://github.com/CM-Sebastian/proyectoIntegrador-Restaurante" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tech-icon"> Repositorio
+          </a>
+        </div>
+
+        <div class="tags-container">
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon"> Python (Flask)
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon"> PostgreSQL
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon"> JavaScript
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="UI/UX" class="tech-icon"> UI/UX
+          </span>
+        </div>
+      </article>
+
+      <!-- Proyecto 2: Bot Inmobiliario RAG Telegram -->
+      <article class="project-card bubble-card" data-category="python">
+        <div class="card-header">
+          <h3 data-i18n="p2-title">Bot Inmobiliario & RAG (Telegram)</h3>
+          <span class="card-badge">IA & Backend</span>
+        </div>
+        <p data-i18n="p2-desc">Bot de Telegram inteligente integrado con modelos de Machine Learning (Random Forest) y RAG para estimación de precios de vivienda e información sectorial.</p>
+        
+        <div class="card-links">
+          <a href="https://github.com/AnthonyUribe1912/bot_inmobiliario" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tech-icon"> Repositorio
+          </a>
+        </div>
+
+        <div class="tags-container">
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon"> Python
+          </span>
+          <span class="tag bubble-tag">🌲 Random Forest</span>
+          <span class="tag bubble-tag">⚡ RAG / Scikit-Learn</span>
+          <span class="tag bubble-tag">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram API" class="tech-icon"> Telegram API
+          </span>
+        </div>
+      </article>
+
+      <!-- Proyecto 3: Simulador ATM -->
+      <article class="project-card bubble-card" data-category="web">
+        <div class="card-header">
+          <h3 data-i18n="p3-title">Simulador de Cajero Automático</h3>
+          <span class="card-badge">Full-Stack</span>
+        </div>
+        <p data-i18n="p3-desc">Aplicación web para procesamiento de transacciones bancarias, procedimientos almacenados y generación de comprobantes PDF.</p>
+        
+        <div class="card-links">
+          <a href="https://github.com/AnthonyUribe1912/ATM-Web" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tech-icon"> Repositorio
+          </a>
+        </div>
+
+        <div class="tags-container">
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="tech-icon"> Flask
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon"> PostgreSQL
+          </span>
+          <span class="tag bubble-tag">🗄️ PL/pgSQL</span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon"> JavaScript
+          </span>
+        </div>
+      </article>
+
+      <!-- Proyecto 4: U-Subscriptions -->
+      <article class="project-card bubble-card" data-category="web">
+        <div class="card-header">
+          <h3 data-i18n="p4-title">U-Subscriptions</h3>
+          <span class="card-badge">Web UI</span>
+        </div>
+        <p data-i18n="p4-desc">Plataforma web colaborativa para la gestión de descuentos y suscripciones enfocada en estudiantes universitarios.</p>
+        
+        <div class="card-links">
+          <a href="https://github.com/AnthonyUribe1912/U-Subscriptions" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tech-icon"> Repositorio
+          </a>
+          <a href="https://anthonyuribe1912.github.io/U-Subscriptions/" target="_blank" rel="noopener noreferrer" class="project-link">
+            🌐 Sitio Web
+          </a>
+        </div>
+
+        <div class="tags-container">
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon"> HTML5 / CSS3
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon"> JavaScript
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="tech-icon"> Figma
+          </span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="tech-icon"> Git
+          </span>
+        </div>
+      </article>
+
+      <!-- Proyecto 5: Redes OSPF -->
+      <article class="project-card bubble-card" data-category="redes">
+        <div class="card-header">
+          <h3 data-i18n="p5-title">Infraestructura & Enrutamiento OSPF</h3>
+          <span class="card-badge">Redes</span>
+        </div>
+        <p data-i18n="p5-desc">Diseño e implementación de arquitectura de red con VLANs, subinterfaces y protocolo de enrutamiento OSPF.</p>
+        
+        <div class="card-links">
+          <a href="https://github.com/AnthonyUribe1912/Redes-OSPF-Cisco" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tech-icon"> Repositorio
+          </a>
+        </div>
+
+        <div class="tags-container">
+          <span class="tag bubble-tag">🌐 Redes</span>
+          <span class="tag bubble-tag">
+            <img src="https://cdn.simpleicons.org/cisco/049fd9" alt="Cisco" class="tech-icon"> Cisco Packet Tracer
+          </span>
+          <span class="tag bubble-tag">🖥️ GNS3</span>
+          <span class="tag bubble-tag">🔀 OSPF</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Trayectoria & Educación -->
+  <section id="experience" class="section scroll-reveal">
+    <h2 data-i18n="section-experience">Educación & Trayectoria</h2>
+    <div class="timeline">
+      <div class="timeline-item bubble-card">
+        <span class="timeline-date">2024 - Presente</span>
+        <h3 data-i18n="edu1-title">Pontificia Universidad Católica del Ecuador (PUCE)</h3>
+        <p data-i18n="edu1-desc">Estudiante de Desarrollo de Software. Formación integral en arquitectura de software, algoritmos, bases de datos y redes de computadoras.</p>
+      </div>
+      <div class="timeline-item bubble-card">
+        <span class="timeline-date">2024 - Presente</span>
+        <h3 data-i18n="edu2-title">Proyectos Colaborativos & Trabajo en Equipo</h3>
+        <p data-i18n="edu2-desc">Participación activa en equipos multidisciplinarios para el desarrollo de proyectos tecnológicos integradores, promoviendo un ambiente laboral armónico y productivo.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Referencias -->
+  <section id="references" class="section scroll-reveal">
+    <h2 data-i18n="section-references">Referencias</h2>
+    <div class="skills-grid">
+      <div class="skill-card bubble-card">
+        <div class="card-icon">🎬</div>
+        <h3 data-i18n="ref1-title">Agencia de Contenido Audiovisual (Gyto)</h3>
+        <p data-i18n="ref1-desc">Contacto de referencia de compañía de edición de videos</p>
+        <div class="tags-container">
+          <a href="tel:0969816416" class="bubble-tag" style="text-decoration: none; color: inherit;">
+            📱 0969816416
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
