@@ -126,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'p4-desc': 'Plataforma web colaborativa para la gestión de descuentos y suscripciones enfocada en estudiantes universitarios.',
       'p5-title': 'Infraestructura & Enrutamiento OSPF',
       'p5-desc': 'Diseño e implementación de arquitectura de red con VLANs, subinterfaces y protocolo de enrutamiento OSPF.',
+      'p6-title': 'MusicMaru',
+      'p6-desc': 'Plataforma e-commerce para mercancía musical y artículos de bandas, con diseño de interfaz de usuario, catálogo interactivo y carrito de compras.',
       'section-experience': 'Educación & Trayectoria',
       'edu1-title': 'Pontificia Universidad Católica del Ecuador (PUCE)',
       'edu1-desc': 'Estudiante de Desarrollo de Software. Formación integral en arquitectura de software, algoritmos, bases de datos y redes de computadoras.',
@@ -189,6 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
       'p4-desc': 'Collaborative web platform for managing university student discounts and subscriptions.',
       'p5-title': 'Infrastructure & OSPF Routing',
       'p5-desc': 'Design and implementation of network architecture featuring VLANs, subinterfaces, and dynamic OSPF routing.',
+      'p6-title': 'MusicMaru',
+      'p6-desc': 'E-commerce platform for music and band merchandise, featuring custom UI design, interactive catalog, and shopping cart management.',
       'section-experience': 'Education & Experience',
       'edu1-title': 'Pontificia Universidad Católica del Ecuador (PUCE)',
       'edu1-desc': 'Software Development Student. Comprehensive training in software architecture, algorithms, databases, and computer networks.',
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'sched-tue-wed': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:00 onwards',
       'sched-thu-fri-tag': 'Thursday & Friday',
       'sched-thu-fri': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:30 onwards',
-      'sched-sat-tag': 'Sábados',
+      'sched-sat-tag': 'Saturdays',
       'sched-sat': '• Afternoons: 15:00 onwards'
     }
   };
