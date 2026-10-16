@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let speed = isDeleting ? 70 : 130;
 
     if (!isDeleting && charIndex === fullText.length) {
-      speed = 2200; // Pausa de 2.2 segundos con el texto completo
+      speed = 2200;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
-      speed = 500; // Pausa antes de volver a empezar
+      speed = 500;
       isDeleting = false;
     } else {
       charIndex += isDeleting ? -1 : 1;
@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const speed = parseFloat(bubble.getAttribute('data-speed')) || 0.1;
       const scrollOffset = scrollY * speed;
       
-      // Combina el desplazamiento por Scroll y por Mouse
       bubble.style.transform = `translate3d(${mouseX}px, ${mouseY + scrollOffset}px, 0)`;
     });
   }
@@ -70,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const particle = document.createElement('div');
       particle.classList.add('particle');
 
-      const size = Math.random() * 8 + 4; // Tamaño entre 4px y 12px
-      const left = Math.random() * 100; // Posición horizontal aleatoria
-      const duration = Math.random() * 10 + 8; // Duración animación entre 8s y 18s
-      const delay = Math.random() * 10; // Retraso de inicio aleatorio
+      const size = Math.random() * 8 + 4;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 10 + 8;
+      const delay = Math.random() * 10;
 
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
@@ -95,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'nav-projects': 'Proyectos',
       'nav-experience': 'Educación & Trayectoria',
       'nav-references': 'Referencias',
+      'nav-contact': 'Contacto & Disponibilidad',
       'hero-badge': 'Disponible para nuevos proyectos y oportunidades',
       'hero-title': 'Desarrollador de Software Intermedio',
       'hero-subtitle': 'Estudiante de 20 años en la Pontificia Universidad Católica del Ecuador (PUCE). Especializado en desarrollo web con HTML, CSS, JavaScript, programación sólida en Python y sistemas de redes de computación. Gran facilidad para el trabajo en equipo y la colaboración.',
@@ -133,7 +133,23 @@ document.addEventListener('DOMContentLoaded', () => {
       'edu2-desc': 'Participación activa en equipos multidisciplinarios para el desarrollo de proyectos tecnológicos integradores, promoviendo un ambiente laboral armónico y productivo.',
       'section-references': 'Referencias',
       'ref1-title': 'Agencia de Contenido Audiovisual (Gyto)',
-      'ref1-desc': 'Contacto de referencia compañía de edición de videos'
+      'ref1-desc': 'Contacto de referencia compañía de edición de videos',
+      'section-contact': 'Contacto & Disponibilidad',
+      'contact-info-title': 'Información de Contacto',
+      'contact-info-desc': 'Puedes ponerte en contacto conmigo a través de correo electrónico o mis redes profesionales:',
+      'contact-email-label': 'Correo Electrónico:',
+      'contact-location-label': 'Ubicación:',
+      'contact-links-label': 'Perfiles Profesionales:',
+      'contact-schedule-title': 'Disponibilidad Horaria',
+      'contact-schedule-desc': 'Mi disponibilidad para proyectos y reuniones (Periodo Octubre 2026 - Marzo 2027):',
+      'sched-mon-tag': 'Lunes',
+      'sched-mon': '• Disponible todo el día',
+      'sched-tue-wed-tag': 'Martes y Miércoles',
+      'sched-tue-wed': '• Mañanas: 08:00 – 13:00<br>• Noches: 19:00 en adelante',
+      'sched-thu-fri-tag': 'Jueves y Viernes',
+      'sched-thu-fri': '• Mañanas: 08:00 – 13:00<br>• Noches: 19:30 en adelante',
+      'sched-sat-tag': 'Sábados',
+      'sched-sat': '• Tardes: 15:00 en adelante'
     },
     en: {
       'nav-about': 'About Me',
@@ -141,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'nav-projects': 'Projects',
       'nav-experience': 'Education & Experience',
       'nav-references': 'References',
+      'nav-contact': 'Contact & Availability',
       'hero-badge': 'Available for new projects & opportunities',
       'hero-title': 'Intermediate Software Developer',
       'hero-subtitle': '20-year-old student at Pontificia Universidad Católica del Ecuador (PUCE). Specialized in web development with HTML, CSS, JavaScript, solid Python programming, and computer networking systems. Excellent teamwork and interpersonal skills.',
@@ -179,7 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
       'edu2-desc': 'Active participation in multidisciplinary teams for technology integration projects, fostering a harmonious and productive working environment.',
       'section-references': 'References',
       'ref1-title': 'Audiovisual Content Agency (Gyto)',
-      'ref1-desc': 'Reference contact for video editing company'
+      'ref1-desc': 'Reference contact for video editing company',
+      'section-contact': 'Contact & Availability',
+      'contact-info-title': 'Contact Information',
+      'contact-info-desc': 'You can reach out to me via email or professional networks:',
+      'contact-email-label': 'Email:',
+      'contact-location-label': 'Location:',
+      'contact-links-label': 'Professional Profiles:',
+      'contact-schedule-title': 'Time Availability',
+      'contact-schedule-desc': 'My availability for projects and meetings (October 2026 - March 2027 term):',
+      'sched-mon-tag': 'Monday',
+      'sched-mon': '• Full day availability',
+      'sched-tue-wed-tag': 'Tuesday & Wednesday',
+      'sched-tue-wed': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:00 onwards',
+      'sched-thu-fri-tag': 'Thursday & Friday',
+      'sched-thu-fri': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:30 onwards',
+      'sched-sat-tag': 'Sábados',
+      'sched-sat': '• Afternoons: 15:00 onwards'
     }
   };
 
@@ -200,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang] && translations[lang][key]) {
-        el.textContent = translations[lang][key];
+        el.innerHTML = translations[lang][key];
       }
     });
   }
