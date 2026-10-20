@@ -143,15 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-location-label': 'Ubicación:',
       'contact-links-label': 'Perfiles Profesionales:',
       'contact-schedule-title': 'Disponibilidad Horaria',
-      'contact-schedule-desc': 'Mi disponibilidad para proyectos y reuniones (Periodo Octubre 2026 - Marzo 2027):',
-      'sched-mon-tag': 'Lunes',
-      'sched-mon': '• Disponible todo el día',
-      'sched-tue-wed-tag': 'Martes y Miércoles',
-      'sched-tue-wed': '• Mañanas: 08:00 – 13:00<br>• Noches: 19:00 en adelante',
-      'sched-thu-fri-tag': 'Jueves y Viernes',
-      'sched-thu-fri': '• Mañanas: 08:00 – 13:00<br>• Noches: 19:30 en adelante',
-      'sched-sat-tag': 'Sábados',
-      'sched-sat': '• Tardes: 15:00 en adelante'
+      'contact-schedule-desc': 'Mi disponibilidad para proyectos y reuniones (Periodo Octubre 2026 - Marzo 2027):',      
+      'sched-week-tag': 'Lunes a Viernes',
+      'sched-week': '• Disponibilidad en las mañanas: 08:00 – 13:00',
+      'skill-english-title': 'Inglés Avanzado',
+      'skill-english-desc': 'Dominio fluido y avanzado del idioma inglés, con excelente capacidad para la comunicación oral y escrita.'
     },
     en: {
       'nav-about': 'About Me',
@@ -209,14 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-links-label': 'Professional Profiles:',
       'contact-schedule-title': 'Time Availability',
       'contact-schedule-desc': 'My availability for projects and meetings (October 2026 - March 2027 term):',
-      'sched-mon-tag': 'Monday',
-      'sched-mon': '• Full day availability',
-      'sched-tue-wed-tag': 'Tuesday & Wednesday',
-      'sched-tue-wed': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:00 onwards',
-      'sched-thu-fri-tag': 'Thursday & Friday',
-      'sched-thu-fri': '• Mornings: 08:00 – 13:00<br>• Evenings: 19:30 onwards',
-      'sched-sat-tag': 'Saturdays',
-      'sched-sat': '• Afternoons: 15:00 onwards'
+      'sched-week-tag': 'Monday to Friday',
+      'sched-week': '• Morning availability: 08:00 – 13:00',
+      'skill-english-title': 'Advanced English',
+      'skill-english-desc': 'Fluent and advanced proficiency in English, with excellent communication skills in both speaking and writing.',
     }
   };
 
